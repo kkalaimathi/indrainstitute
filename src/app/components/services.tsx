@@ -12,7 +12,7 @@ const serviceImages = [
 const Services = () => {
     return (
         <section className="py-8 bg-yellow-50">
-            <h2 className="caveat text-7xl text-center text-black font-bold mb-6">Our Services</h2>
+            <h2 className="caveat text-2xl lg:text-7xl text-center text-black font-bold mb-6">Our Services</h2>
             <div className="container mx-auto flex flex-col items-center">
                 {/* First Row with 5 Circular Columns */}
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">

@@ -16,7 +16,7 @@ const Aboutus = () => {
 
     return (
         <section id="about"><br />
-            <div className="caveat text-2xl lg:text-7xl  text-black font-bold mt-6 mb-0 text-center">About Us</div>
+            <div className="caveat text-2xl lg:text-7xl  text-black font-extrabold mt-6 mb-0 text-center">About Us</div>
             <div className="container mx-auto p-4">
 
                 <div className="md:grid md:grid-cols-2 gap-4 mt-8">
@@ -39,7 +39,7 @@ const Aboutus = () => {
                             <div>
                                 <h2 className="text-sm text-black bg-[#f3e990] w-32 p-1 text-center font-bold mb-4">Hello Everyone</h2>
                                 <h2 className="lg:text-4xl text-2xl text-justify text-teal-600 font-bold mb-4">Welcome to Indra Insititute Training.</h2>
-                                <p className="text-xl text-justify font-serif text-gray-500">
+                                <p className="text-base lg:text-xl text-justify font-serif text-gray-500">
                                     Indra Insititute Training is a specialized institution focused on teaching various forms and styles of dance. These academies offer structured dance education programs that cater to different skill levels, from beginners to advanced performers. The curriculum often includes a range of dance styles such as ballet, contemporary, hip-hop, jazz, classical, and folk dances, allowing students to explore diverse techniques and cultural expressions.
                                     <br /><br /><br />In a dance academy, students receive guidance from professional instructors and choreographers, learning not only the physical aspects of dance—such as movement, coordination, balance, and rhythm—but also the theoretical and artistic elements, including choreography, stage presence, and expression.
 
@@ -50,7 +50,7 @@ const Aboutus = () => {
                             {/* First Column */}
                             <div className="flex flex-col">
                                 <h3 className="text-xl text-teal-600 text-center lg:text-left  font-bold mb-4">Dance Certification Programs</h3>
-                                <p className="text-lg  text-gray-500 font-serif w-full">Formal dance education that leads to certification, allowing dancers to pursue dance as a career or qualify for advanced programs.Participation in graded dance exams, often accredited by recognized dance bodies, validating skill levels.</p>
+                                <p className="text-base lg:text-lg  text-gray-500 font-serif w-full">Formal dance education that leads to certification, allowing dancers to pursue dance as a career or qualify for advanced programs.Participation in graded dance exams, often accredited by recognized dance bodies, validating skill levels.</p>
                             </div>
 
                             {/* Second Column */}

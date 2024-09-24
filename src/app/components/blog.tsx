@@ -16,7 +16,7 @@ const Blog = () => {
     return (
         <section id="blog" className="py-8">
             <br />
-            <h2 className=" caveat text-4xl text-center text-yellow-600 font-bold mb-6">
+            <h2 className=" caveat text-3xl lg:text-4xl text-center text-yellow-600 font-bold mb-6">
                 Indra Academy Routine Schedule Weekly
                 <br />
                 <span className="caveat font-serif text-yellow-600"> For Kids</span>
@@ -40,7 +40,7 @@ const Blog = () => {
                 </div>
             </div>
             <br /><br />
-            <h2 className=" caveat text-4xl text-center text-yellow-600 font-bold mb-6">
+            <h2 className=" caveat text-3xl lg:text-4xl text-center text-yellow-600 font-bold mb-6">
                 Indra Academy Routine Schedule Weekly
                 <br />
                 <span className="caveat font-serif text-yellow-600"> For Parents</span>
