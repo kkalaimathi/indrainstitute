@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-// Import the JSON component
 import Image from "next/image"; // Keep this import for your image component
 import homepageimages from "./homepageimages";
 
@@ -22,13 +21,23 @@ const Header = () => {
     return () => clearInterval(interval); // Cleanup interval on unmount
   }, [images]);
 
+  // Function to go to the next image
+  const nextImage = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  // Function to go to the previous image
+  const prevImage = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
   return (
     <div className="relative h-96 w-full lg:h-screen lg:w-full overflow-hidden">
       {/* Image Background Slider */}
       {images.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${currentIndex === index ? 'opacity-150 z-10' : 'opacity-0 z-0'
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${currentIndex === index ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
           style={{
             backgroundImage: `url(${image.url})`,
@@ -44,11 +53,10 @@ const Header = () => {
           <h2 className="text-lg text-center text-white font-bold lg:text-start lg:text-3xl">
             Welcome To
             <br /><br />
-            <span className=" caveat block text-3xl w-96 lg:w-auto font-extrabold bg-gradient-to-r from-teal-500 to-yellow-500 bg-clip-text text-transparent lg:text-7xl">
+            <span className="caveat lg:block text-3xl w-96 lg:w-auto font-black bg-gradient-to-r from-teal-500 to-yellow-500 bg-clip-text text-transparent lg:text-7xl">
               {/* Display the title of the currently displayed image */}
               {images.length > 0 ? images[currentIndex].title : ""}
             </span>
-
           </h2>
           <br /><br />
           {/* Optional Button */}
@@ -57,6 +65,20 @@ const Header = () => {
                     </button> */}
         </div>
       </div>
+
+      {/* Arrow Buttons */}
+      <button
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-gray-600"
+        onClick={prevImage}
+      >
+        &lt; {/* Left arrow */}
+      </button>
+      <button
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-gray-600"
+        onClick={nextImage}
+      >
+        &gt; {/* Right arrow */}
+      </button>
     </div>
   );
 };

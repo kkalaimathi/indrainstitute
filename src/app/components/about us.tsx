@@ -20,7 +20,7 @@ const Aboutus = () => {
             <div className="container mx-auto p-4">
 
                 <div className="md:grid md:grid-cols-2 gap-4 mt-8">
-                   <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 p-4">
+                    <div className="grid grid-cols-2 gap-4 p-4">
                         {images.map((image, index) => (
                             <div
                                 key={index}
@@ -32,17 +32,18 @@ const Aboutus = () => {
                         ))}
                     </div>
 
+
                     {/* Second Column: Additional Content or Admin Button */}
                     <div className="flex flex-col items-start p-4 space-y-4 w-full">
                         <div className="flex items-center mt-20 ">
                             <div>
-                                <h2 className="text-sm text-white bg-[#f3e990] w-32 p-1 text-center font-bold mb-4">Hello Everyone</h2>
+                                <h2 className="text-sm text-black bg-[#f3e990] w-32 p-1 text-center font-bold mb-4">Hello Everyone</h2>
                                 <h2 className="lg:text-4xl text-2xl text-justify text-teal-600 font-bold mb-4">Welcome to Indra Insititute Training.</h2>
                                 <p className="text-xl text-justify font-serif text-gray-500">
-                                Indra Insititute Training is a specialized institution focused on teaching various forms and styles of dance. These academies offer structured dance education programs that cater to different skill levels, from beginners to advanced performers. The curriculum often includes a range of dance styles such as ballet, contemporary, hip-hop, jazz, classical, and folk dances, allowing students to explore diverse techniques and cultural expressions.
-                                <br/><br/><br/>In a dance academy, students receive guidance from professional instructors and choreographers, learning not only the physical aspects of dance—such as movement, coordination, balance, and rhythm—but also the theoretical and artistic elements, including choreography, stage presence, and expression.
+                                    Indra Insititute Training is a specialized institution focused on teaching various forms and styles of dance. These academies offer structured dance education programs that cater to different skill levels, from beginners to advanced performers. The curriculum often includes a range of dance styles such as ballet, contemporary, hip-hop, jazz, classical, and folk dances, allowing students to explore diverse techniques and cultural expressions.
+                                    <br /><br /><br />In a dance academy, students receive guidance from professional instructors and choreographers, learning not only the physical aspects of dance—such as movement, coordination, balance, and rhythm—but also the theoretical and artistic elements, including choreography, stage presence, and expression.
 
-                               </p>
+                                </p>
                             </div>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-11 p-4">
