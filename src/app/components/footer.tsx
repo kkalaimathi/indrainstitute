@@ -1,79 +1,81 @@
-import Link from 'next/link';
 import Image from 'next/image';
-import { FaPhone, FaEnvelope } from 'react-icons/fa'; // Import icons from react-icons
+import Link from 'next/link';
 import React from 'react';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
-    return (
-        <footer className="bg-yellow-500 text-teal-600 py-8">
-            <div className="container mx-auto px-4">
-                <div className="flex flex-col md:flex-row justify-between items-center">
-                    <div className="text-center md:text-left mb-4 md:mb-0">
-                        <h1 className="text-2xl lg:text-4xl font-bold caveat">Indra Insiti  tute Of Training</h1>
-                        <p className="text-sm font-semibold  text-red-500">Your gateway to knowledge and skills.</p>
-                    </div>
-                    <br />
-                    <nav className="mb-4 md:mb-0 caveat">
-                        <ul className="flex space-x-4 text-base lg:text-2xl font-bold">
-                            <li>
-                                <Link href="#home" className="hover:text-green-500 transition">Home</Link>
-                            </li>
-                            <li>
-                                <Link href="#about" className="hover:text-green-500 transition">About</Link>
-                            </li>
-                            <li>
-                                <Link href="#services" className="hover:text-green-500 transition">Services</Link>
-                            </li>
-                            <li>
-                                <Link href="#contact" className="hover:text-green-500 transition">Contact</Link>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div className="flex space-x-4 caveat">
-                        <a href="#" className="text-green-500 hover:text-white transition hover:underline">
-                            <i className="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" className="text-green-500 hover:text-white transition hover:underline">
-                            <i className="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" className="text-green-500 hover:text-white transition hover:underline">
-                            <i className="fab fa-instagram"></i>
-                        </a>
-                    </div>
+  return (
+    <footer className="bg-gray-800 text-white  py-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row justify-between">
+          {/* Important Links */}
+          <div className="mb-6 md:mb-0">
+            <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
+            <ul className="space-y-1">
+              <li>
+                <Link href="#about" className="hover:text-blue-400">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="#music" className="hover:text-blue-400">
+                  Classes
+                </Link>
+              </li>
+              <li>
+                <Link href="#contact" className="hover:text-blue-400">
+                  Contact
+                </Link>
+              </li>
+             
+            </ul>
+          </div>
 
+          {/* Contact Information */}
+          <div className="mb-6 md:mb-0">
+            <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
+            <p className="mb-1">3rd Floor,Chathriya Towers,</p>
+            <p className="mb-1">No1 Tolgate,Trichy 621216</p>
+            <p className="mb-1">Email:<Link href="mailto: info@ieactedu.in" target='_blank'> info@ieactedu.in</Link></p>
+            <p className="mb-1">Phone: <Link href="tel:9360907074" target='_blank'>93609 07074</Link>,<Link href="tel:9360907075" target='_blank'>93609 07075</Link></p>
+          </div>
 
-                </div><br />
+          {/* Social Media Icons */}
+          <div>
+            <h3 className="text-lg font-semibold mb-2">Follow Us</h3>
+            <div className="flex space-x-4">
+              <Link href="#" className="hover:text-blue-400">
+                <FaFacebook size={24} />
+              </Link>
+              <Link href="#" className="hover:text-blue-400">
+                <FaTwitter size={24} />
+              </Link>
+              <Link href="#" className="hover:text-blue-400">
+                <FaInstagram size={24} />
+              </Link>
+              <Link href="#" className="hover:text-blue-400">
+                <FaLinkedin size={24} />
+              </Link>
+              <Link href="#" className="hover:text-blue-400">
+                <FaWhatsapp size={24} />
+              </Link>
+            </div>
+          </div>
+        </div>
 
-                {/* Address Section */}
-                <div className="text-center md:text-left mb-4 font-bold md:mb-0">
-                    <p className="text-base text-white">3rd Floor Chathriya Towers,</p>
-                    <p className="text-base text-white">No.1 Tollgate, Trichy-621216</p>
-                </div>
-
-                {/* Contact Information Section */}
-                <div className="text-center md:text-left font-bold mb-4 md:mb-0">
-                    <p className="text-base text-white flex items-center">
-                        <FaPhone className="mr-2 transform rotate-90" /> {/* Phone Icon */}
-                        Call: +91 93609-07074, +91 936090-7075
-                    </p>
-                    <p className="text-base text-white flex items-center">
-                        <FaEnvelope className="mr-2" /> {/* Email Icon */}
-                        Email: info@ieactedu.in
-                    </p>
-                </div>
-
-                <div className='container mx-auto border-t-2 border-[#f5f3f3] flex flex-col md:flex-row justify-center md:justify-between gap-2 px-1 py-2 md:py-5 w-full bg-yellow-500'>
-                    <p className='caveat text-orange-600 text-base font-semibold md:text-lg text-center'>
+        {/* Copyright Section */}
+        <div className="flex flex-row justify-around items-center text-center mt-6 border-t border-gray-700 pt-4">
+                    <p className='caveat text-white  '>
                         Copyrights @ 2024 Indra Institute
                     </p>
                     <Link href="https://www.opalminds.com/" target="_blank" className='flex justify-center items-center'>
-                        <p className='text-orange-600 font-semibold text-base md:text-lg text-center mr-1 caveat'>Designed by</p>
+                        <p className='text-white  '>Designed by</p>
                         <Image src="/opallogo.webp" width={100} height={100} alt='Opal Logo' className='w-[130px] h-auto' />
                     </Link>
                 </div>
-            </div>
-        </footer>
-    );
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
