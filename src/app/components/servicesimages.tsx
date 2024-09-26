@@ -1,4 +1,4 @@
- export const servicesData = [
+export const servicesData = [
     {
         title: "Music",
         id:"music",
@@ -60,7 +60,7 @@
             }
         ]
     },
-   
+    
     {
         title: "Sports",
         id:"sports",
@@ -134,15 +134,7 @@
                 name: "Air Hockey",
                 description: "Master the game of cricket.",
                 imageUrl: "/airhockey.png" // Replace with the correct image path
-            }
-            ,
-            {
-                name: "Air Hockey",
-                description: "Master the game of cricket.",
-                imageUrl: "/airhockey.png" // Replace with the correct image path
-            }
-            
-            
+            }   
         ]
     },
     {
