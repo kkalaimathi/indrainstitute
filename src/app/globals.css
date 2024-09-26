@@ -16,3 +16,7 @@ html {
   font-weight: 800;
   font-style: normal;
 }
+
+.spacing-component {
+  margin-bottom: 1rem; /* Or whatever space you want to remove */
+}

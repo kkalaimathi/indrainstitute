@@ -281,6 +281,25 @@ const Navbar = () => {
     };
   }, []);
 
+// Function to handle smooth scroll and remove spacing between components
+const handleNavClick = (href: string | undefined) => {
+  const safeHref = href || "#default"; // Provide a default value or handle undefined case
+  const targetSection = document.querySelector(safeHref);
+  if (targetSection) {
+    targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    const components = document.querySelectorAll(".spacing-component");
+    components.forEach((component) => {
+      const element = component as HTMLElement;
+      element.style.margin = "30px";
+      element.style.padding = "0";
+    });
+  }
+};
+
+
+
+
   return (
     <nav ref={navbarRef} className="bg-white shadow-lg sticky top-0 z-50 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -290,39 +309,45 @@ const Navbar = () => {
 
           {/* Menu Links for Desktop */}
           <div className="hidden md:flex md:flex-row md:gap-6">
-            {Navbarlinks.navLinks.map((link: Link) => (
-              <div key={link.key} className="relative">
-                {link.dropdownLinks ? (
-                  <div>
-                    <button
-                      type="button"
-                      onClick={() => toggleDropdown(link.key)}
-                      className="flex items-center text-gray-700 hover:text-blue-500 font-medium"
-                    >
-                      {link.label}
-                      <FaChevronDown className="ml-2" />
-                    </button>
-                    {dropdownOpen === link.key && (
-                      <div className="absolute bg-white shadow-lg py-2 mt-2 w-40 z-50">
-                        {link.dropdownLinks.map((dropdownLink: DropdownLink) => (
-                          <Link
-                            key={dropdownLink.key}
-                            href={dropdownLink.href}
-                            className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                          >
-                            {dropdownLink.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link href={link.href as any} className="text-gray-700 hover:text-blue-500 font-medium">
-                    {link.label}
-                  </Link>
-                )}
-              </div>
+          {Navbarlinks.navLinks.map((link: Link) => (
+  <div key={link.key} className="relative">
+    {link.dropdownLinks ? (
+      <div>
+        <button
+          type="button"
+          onClick={() => toggleDropdown(link.key)}
+          className="flex items-center text-gray-700 hover:text-blue-500 font-medium"
+        >
+          {link.label}
+          <FaChevronDown className="ml-2" />
+        </button>
+        {dropdownOpen === link.key && (
+          <div className="absolute bg-white shadow-lg py-2 mt-2 w-40 z-50">
+            {link.dropdownLinks.map((dropdownLink: DropdownLink) => (
+              <Link
+                key={dropdownLink.key}
+                href={dropdownLink.href}
+                onClick={() => handleNavClick(dropdownLink.href)} // Add click handler
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+              >
+                {dropdownLink.label}
+              </Link>
             ))}
+          </div>
+        )}
+      </div>
+    ) : (
+      <Link
+        href={link.href as any}
+        onClick={() => handleNavClick(link.href)} // Add click handler
+        className="text-gray-700 hover:text-blue-500 font-medium"
+      >
+        {link.label}
+      </Link>
+    )}
+  </div>
+))}
+
           </div>
 
           {/* Contact Button for Desktop */}
@@ -360,7 +385,7 @@ const Navbar = () => {
                       <button
                         type="button"
                         onClick={() => toggleDropdown(link.key) }
-                        className="flex justify-between bg-red-500 items-center w-full text-gray-700 hover:text-blue-500 font-medium "
+                        className="flex justify-between items-center w-full text-gray-700 hover:text-blue-500 font-medium "
                       >
                         {link.label}
                         <FaChevronDown className="ml-2" />

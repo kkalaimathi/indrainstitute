@@ -17,7 +17,7 @@ const Benefits = () => {
                                 width={300}
                                 height={200}
                             />
-                            <h3 className="text-xl font-normal  text-gray-800 mb-2 group-hover:text-teal-500 ">
+                            <h3 className="text-xl font-bold  text-red-800 mb-2 group-hover:text-teal-500 ">
                                 {section.title}
                             </h3>
                             <p className="text-gray-600 text-sm text-justify">

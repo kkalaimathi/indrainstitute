@@ -65,14 +65,14 @@ import Image from 'next/image';
 const Services = () => {
     const [activeTab, setActiveTab] = useState(servicesData[0].title);
 
-    const activeService = useMemo(() => 
-        servicesData.find(service => service.title === activeTab), 
+    const activeService = useMemo(() =>
+        servicesData.find(service => service.title === activeTab),
         [activeTab]
     );
 
     return (
         <section id='classes' className="pb-16 pt-28 mt-20 relative">
-                            <Image className='hidden lg:block w-full h-screen opacity-15  absolute top-[100px] -z-10' width={1000} height={1000} alt='bg1' src={"/bg1.png"} />
+            <Image className='hidden lg:block w-full h-screen opacity-15  absolute top-[100px] -z-10' width={1000} height={1000} alt='bg1' src={"/bg1.png"} />
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative ">
                 {/* Section title */}
@@ -83,9 +83,8 @@ const Services = () => {
                     {servicesData.map((service, index) => (
                         <button
                             key={index}
-                            className={`px-4 py-2 text-lg font-semibold transition-colors rounded-full ${
-                                activeTab === service.title ? 'bg-yellow-300 lg:text-white' : 'bg-white text-yellow-500 hover:bg-yellow-100'
-                            } `}
+                            className={`px-4 py-2 text-lg font-semibold transition-colors rounded-full ${activeTab === service.title ? 'bg-yellow-300 lg:text-white' : 'bg-white text-yellow-500 hover:bg-yellow-100'
+                                } `}
                             onClick={() => setActiveTab(service.title)}
                             aria-pressed={activeTab === service.title}
                         >
@@ -99,13 +98,13 @@ const Services = () => {
                     {activeService?.subcategories.map((subcategory, index) => (
                         <div key={index} className="w-[350px] bg-white rounded-lg shadow-lg overflow-hidden">
                             <Image
-                                    src={subcategory.imageUrl}
-                                    alt={`${subcategory.name} class image`}
-                                    width={1000}
-                                    height={1000}
-                                    className="w-full h-56 object-cover" // Ensure the image covers the entire container
-                                    loading="lazy" // Improve performance
-                                />
+                                src={subcategory.imageUrl}
+                                alt={`${subcategory.name} class image`}
+                                width={1000}
+                                height={1000}
+                                className="w-full h-56 object-cover" // Ensure the image covers the entire container
+                                loading="lazy" // Improve performance
+                            />
                             <div className="p-4">
                                 <h3 className="text-xl font-semibold text-[#C3340A]">{subcategory.name}</h3>
                                 <p className="mt-2 text-gray-600">{subcategory.description}</p>

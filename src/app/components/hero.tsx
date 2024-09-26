@@ -82,7 +82,7 @@ const Header = () => {
     //     &gt; Right arrow
     //   </button>
     // </div>
-    <div className="w-full px-8 h-screen bg-gradient-to-b from-yellow-100 via-yellow-150 to-yellow-0">
+    <div className="w-full px-8 lg:h-screen bg-gradient-to-b from-yellow-100 via-yellow-150 to-yellow-0">
       <div className="p-32 lg:p-40 h-full lg:h-screen container mx-auto flex flex-col items-center justify-between gap-6 relative">
 
         {/* Left Hero Image */}
@@ -137,7 +137,7 @@ const Header = () => {
 
         <div className="flex items-start justify-center gap-3 -mt-12">
           <ImQuotesLeft className="text-xl text-red-600" />
-          <p className=" text-3xl lg:text-3xl font-bold text-gray-600 text-center ">Activities Make <span className="caveat text-red-600">Children </span>Great !</p>
+          <p className=" text-3xl lg:text-3xl font-bold text-red-600 text-center ">Activities Make <span className="caveat text-yellow-600">Children </span>Great !</p>
           <ImQuotesRight className="text-xl text-red-600" />
         </div>
 
@@ -145,7 +145,7 @@ const Header = () => {
       
         
           {/* Stats Section */}
-          <div className="w-full bg-gray-800 h-20  py-24  rounded-full flex items-center justify-center gap-10 lg:gap-60">
+          <div className="w-full bg-gray-800 py-10  px-20 lg:px-0  lg:py-24  rounded-full flex flex-col lg:flex-row  items-center justify-center gap-10 lg:gap-60">
             <div className="text-center ">
               <p className="text-6xl text-white font-bold">6+</p>
               <p className="text-2xl mt-4 text-white">Classes</p>
