@@ -106,7 +106,7 @@ const Header = () => {
 
         {/* Center Text */}
         <div className="flex flex-col items-center justify-start gap-6">
-          <p className=" text-3xl lg:-mt-14 -mt-24 w-screen  lg:text-3xl font-bold text-gray-600 text-center ">
+          <p className=" text-3xl lg:-mt-14 -mt-16 w-screen  lg:text-3xl font-bold text-gray-600 text-center ">
             Welcome To</p>
           <p className="text-5xl -mt-8 lg:-mt-4 w-screen  lg:text-6xl font-bold text-center  text-red-500 px-2 py-4 ">Indhra Institute of Training </p>
 
