@@ -83,7 +83,7 @@ const Header = () => {
     //   </button>
     // </div>
     <div className="w-full px-8 lg:h-screen bg-gradient-to-b from-yellow-100 via-yellow-150 to-yellow-0">
-      <div className="p-32 lg:p-40 h-full lg:h-screen container mx-auto flex flex-col items-center justify-between gap-6 relative">
+      <div className="p-24 lg:pb-40 h-full lg:h-screen container mx-auto flex flex-col items-center justify-between gap-6 relative">
 
         {/* Left Hero Image */}
         <Image
@@ -91,7 +91,7 @@ const Header = () => {
           height={1000}
           alt="hero1"
           src={"/heroboy1.png"}
-          className="hidden lg:block  absolute left-0 w-[250px] lg:w-[500px] h-auto bottom-[300px]  lg:bottom-[150px]"
+          className="hidden lg:block  absolute left-0 w-[250px] lg:w-[300px] 2xl:w-[500px] h-auto bottom-[300px] lg:bottom-[90px] 2xl:bottom-[250px]"
         />
 
 
@@ -101,16 +101,16 @@ const Header = () => {
           height={1000}
           alt="hero2"
           src={"/heroboy2.png"}
-          className="hidden lg:block absolute right-0 w-[180px] lg:w-[480px] h-auto bottom-[500px] lg:bottom-[150px]"
+          className="hidden lg:block absolute right-0 w-[180px] lg:w-[300px] 2xl:w-[500px] h-auto bottom-[300px] lg:bottom-[90px] 2xl:bottom-[250px]"
         />
 
         {/* Center Text */}
         <div className="flex flex-col items-center justify-start gap-6">
-          <p className=" text-3xl -mt-14 w-screen  lg:text-3xl font-bold text-gray-600 text-center ">
+          <p className=" text-3xl lg:-mt-14 -mt-24 w-screen  lg:text-3xl font-bold text-gray-600 text-center ">
             Welcome To</p>
-          <p className="text-3xl -mt-4 w-screen  lg:text-6xl font-bold text-center  text-red-500 px-2 py-4 ">Indhra Institute of Training </p>
+          <p className="text-5xl -mt-8 lg:-mt-4 w-screen  lg:text-6xl font-bold text-center  text-red-500 px-2 py-4 ">Indhra Institute of Training </p>
 
-          <p className="text-sm lg:text-lg text-gray-900 text-center px-3 lg:px-0  lg:w-2/4 ">
+          <p className="text-sm  lg:text-lg text-gray-900 text-center px-3 lg:px-0  lg:w-2/4 ">
             Explore exciting learning opportunities for your children through our diverse classes, guided by expert instructors dedicated to nurturing creativity, knowledge, and personal growth.
           </p>
           <Link href={"#classes"}>
@@ -131,7 +131,7 @@ const Header = () => {
               height={1000}
               alt="hero1"
               src={"/dolls.png"}
-              className=" hidden  w-[400px]  h-auto lg:block"
+              className=" hidden lg:w-[200px] 2xl:w-[400px]  h-auto lg:block"
             />
         </div>
 
@@ -145,7 +145,7 @@ const Header = () => {
       
         
           {/* Stats Section */}
-          <div className="w-full bg-gray-800 py-10  px-20 lg:px-0  lg:py-24  rounded-full flex flex-col lg:flex-row  items-center justify-center gap-10 lg:gap-60">
+          <div className="w-full bg-gray-800 py-10  px-20 lg:px-0 lg:py-6 xl:py-6 rounded-full flex flex-col lg:flex-row  items-center justify-center gap-10 lg:gap-60">
             <div className="text-center ">
               <p className="text-6xl text-white font-bold">6+</p>
               <p className="text-2xl mt-4 text-white">Classes</p>
