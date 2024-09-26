@@ -4,8 +4,8 @@ const aboutusimages = {
       {url: "/dance2.webp"},
       {url: "/dance3.jpg"},
       {url: "/dance4.jpg"},
-      {url: "/dance5.jpg"},
-      {url: "/dance7.jpeg"}
+      // {url: "/dance5.jpg"},
+      // {url: "/dance7.jpeg"}
       
     ]
   }

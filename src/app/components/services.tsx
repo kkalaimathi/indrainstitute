@@ -71,10 +71,12 @@ const Services = () => {
     );
 
     return (
-        <section id='classes' className="py-16">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section id='classes' className="pb-16 pt-28 mt-20 relative">
+                            <Image className='hidden lg:block w-full h-screen opacity-15  absolute top-[100px] -z-10' width={1000} height={1000} alt='bg1' src={"/bg1.png"} />
+
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative ">
                 {/* Section title */}
-                <h2 className="text-4xl font-bold text-center text-[#C3340A] mb-10">Our Classes</h2>
+                <h2 className="text-4xl font-bold text-center text-red-500 mb-10">Our Classes</h2>
 
                 {/* Tabs */}
                 <div className="flex flex-wrap justify-center mb-8 space-x-4">
@@ -82,8 +84,8 @@ const Services = () => {
                         <button
                             key={index}
                             className={`px-4 py-2 text-lg font-semibold transition-colors rounded-full ${
-                                activeTab === service.title ? 'bg-teal-500 text-white' : 'bg-white text-teal-500'
-                            } hover:bg-teal-300`}
+                                activeTab === service.title ? 'bg-yellow-300 lg:text-white' : 'bg-white text-yellow-500 hover:bg-yellow-100'
+                            } `}
                             onClick={() => setActiveTab(service.title)}
                             aria-pressed={activeTab === service.title}
                         >

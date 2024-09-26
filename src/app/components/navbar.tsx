@@ -264,6 +264,7 @@ const Navbar = () => {
 
   const handleScroll = () => {
     setShowScrollUp(window.scrollY > 300);
+    setMenuOpen(false)
   };
 
   const scrollToTop = () => {
@@ -281,11 +282,11 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav ref={navbarRef} className="bg-white shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav ref={navbarRef} className="bg-white shadow-lg sticky top-0 z-50 ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <img src={Navbarlinks.logo.src} alt={Navbarlinks.logo.alt} className="h-10 w-auto" />
+          <img src={Navbarlinks.logo.src} alt={Navbarlinks.logo.alt} className="h-20 w-auto" />
 
           {/* Menu Links for Desktop */}
           <div className="hidden md:flex md:flex-row md:gap-6">
@@ -350,7 +351,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Links */}
         {menuOpen && (
-          <div className="md:hidden">
+          <div className="md:hidden absolute left-0 top-16 px-4 py-2 bg-white w-full">
             <div className="flex flex-col">
               {Navbarlinks.navLinks.map((link: Link) => (
                 <div key={link.key} className="relative">
@@ -358,8 +359,8 @@ const Navbar = () => {
                     <div>
                       <button
                         type="button"
-                        onClick={() => toggleDropdown(link.key)}
-                        className="flex justify-between items-center w-full text-gray-700 hover:text-blue-500 font-medium px-4 py-2"
+                        onClick={() => toggleDropdown(link.key) }
+                        className="flex justify-between bg-red-500 items-center w-full text-gray-700 hover:text-blue-500 font-medium "
                       >
                         {link.label}
                         <FaChevronDown className="ml-2" />

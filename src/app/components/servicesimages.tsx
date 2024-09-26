@@ -1,28 +1,5 @@
  export const servicesData = [
     {
-        title: "Dance",
-        id:"dance",
-        description: "Explore various dance forms.",
-        subcategories: [
-            {
-                name: "Western",
-                
-                description: "Learn modern dance styles.",
-                imageUrl: "/western.png" // Replace with the correct image path
-            },
-            {
-                name: "Folk",
-                description: "Dive into traditional dance.",
-                imageUrl: "/folk.png" // Replace with the correct image path
-            },
-            {
-                name: "Classical",
-                description: "Master classical dance forms.",
-                imageUrl: "/classical.png" // Replace with the correct image path
-            }
-        ]
-    },
-    {
         title: "Music",
         id:"music",
         description: "Explore music theory and practice.",
@@ -60,6 +37,30 @@
             }
         ]
     },
+    {
+        title: "Dance",
+        id:"dance",
+        description: "Explore various dance forms.",
+        subcategories: [
+            {
+                name: "Western",
+                
+                description: "Learn modern dance styles.",
+                imageUrl: "/western.png" // Replace with the correct image path
+            },
+            {
+                name: "Folk",
+                description: "Dive into traditional dance.",
+                imageUrl: "/folk.png" // Replace with the correct image path
+            },
+            {
+                name: "Classical",
+                description: "Master classical dance forms.",
+                imageUrl: "/classical.png" // Replace with the correct image path
+            }
+        ]
+    },
+   
     {
         title: "Sports",
         id:"sports",

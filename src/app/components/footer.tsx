@@ -64,7 +64,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright Section */}
-        <div className="flex flex-row justify-around items-center text-center mt-6 border-t border-gray-700 pt-4">
+        <div className="flex flex-col lg:flex-row justify-around items-center text-center mt-6 border-t border-gray-700 pt-4">
                     <p className='caveat text-white  '>
                         Copyrights @ 2024 Indra Institute
                     </p>

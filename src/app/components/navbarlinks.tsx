@@ -1,6 +1,6 @@
 export const Navbarlinks = {
   logo: {
-    src: "/path-to-logo/logo.png",
+    src: "/dolls.png",
     alt: "Institute Logo"
   },
   navLinks: [
