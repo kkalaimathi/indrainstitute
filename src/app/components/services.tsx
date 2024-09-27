@@ -307,7 +307,7 @@ const Services = () => {
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8  flex flex-col">
         <h2 className=" mb-5 text-4xl font-bold text-center text-[#C3340A] ">Our Classes</h2>
-        <p className='text-center mb-10 text-xl ' >Timming <span className='text-[#FFBB32] font-bold '>5pm - 8pm</span></p>
+        <p className='text-center mb-10 text-sm ' >Class Timing : <span className='text-[#C3340A] font-bold '>5.00 PM - 8.00 PM</span></p>
 
 
 
