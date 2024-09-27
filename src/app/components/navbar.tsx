@@ -118,7 +118,10 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <img src={Navbarlinks.logo.src} alt={Navbarlinks.logo.alt} className="h-20 w-auto" />
+          <div className="flex flex-row justify-center items-center ">
+          <img src={Navbarlinks.logo.src} alt={Navbarlinks.logo.alt} className="h-16 w-auto" />
+          <p className="text-sm md:text-lg">Indra Educational Institute</p>
+          </div>
 
           {/* Menu Links for Desktop */}
           <div className="hidden md:flex md:flex-row md:gap-6">

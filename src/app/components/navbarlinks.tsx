@@ -40,7 +40,7 @@
 
 export const Navbarlinks = {
   logo: {
-    src: "/dolls.png",
+    src: "/indrainstitute.png",
     alt: "Institute Logo"
   },
   navLinks: [

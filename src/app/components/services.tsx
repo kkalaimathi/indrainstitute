@@ -248,7 +248,7 @@ const Services = () => {
         { name: "Hindi", description: "Learn Hindi with ease.", imageUrl: "/hindi.png" },
         { name: "French", description: "Learn French with ease.", imageUrl: "/french.png" },
         { name: "German", description: "Learn German with ease.", imageUrl: "/german.png" },
-        { name: "Handwriting", description: "Learn handwriting with ease.", imageUrl: "/handwriting.png" }
+        { name: "Handwriting", description: "Learn handwriting with ease.", imageUrl: "/handwritting.png" }
       ]
     },
     {
@@ -263,44 +263,86 @@ const Services = () => {
 
   const activeService = useMemo(() => servicesData.find((service) => service.title === activeTab), [activeTab]);
 
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           const visibleSection = entry.target.getAttribute("data-title");
+  //           if (visibleSection) {
+  //             setActiveTab(visibleSection);
+  //           }
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.5 }
+  //   );
+
+  //   sectionRefs.current.forEach((section) => {
+  //     if (section) observer.observe(section);
+  //   });
+
+  //   return () => {
+  //     sectionRefs.current.forEach((section) => {
+  //       if (section) observer.unobserve(section);
+  //     });
+  //   };
+  // }, []);
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const visibleSection = entry.target.getAttribute("data-title");
-            if (visibleSection) {
-              setActiveTab(visibleSection);
-            }
+    const scrollableDiv = scrollContainerRef.current;
+
+    const handleScroll = () => {
+      if (!scrollableDiv) return;
+
+      let lastVisibleSection = "music"; // Default section
+      const scrollTop = scrollableDiv.scrollTop;
+      const scrollHeight = scrollableDiv.scrollHeight;
+      const clientHeight = scrollableDiv.clientHeight;
+
+      servicesData.forEach((section, index) => {
+        const element = sectionRefs.current[index];
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const scrollableRect = scrollableDiv.getBoundingClientRect();
+
+          // Check if the section is in view relative to the scrollable div
+          if (rect.top >= scrollableRect.top && rect.top < scrollableRect.bottom) {
+            setActiveTab(section.title); // Update active tab to the section in view
+            lastVisibleSection = section.title;
           }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    sectionRefs.current.forEach((section) => {
-      if (section) observer.observe(section);
-    });
-
-    return () => {
-      sectionRefs.current.forEach((section) => {
-        if (section) observer.unobserve(section);
+        }
       });
+
+      // If no section is in view, set the active tab to "music"
+      if (scrollTop === -10) {
+        setActiveTab("music");
+      }
     };
-  }, []);
+
+    // Add the scroll event listener to the scrollable div
+    if (scrollableDiv) {
+      scrollableDiv.addEventListener('scroll', handleScroll);
+      
+      // Call it initially to set the correct active tab
+      handleScroll();
+    }
+
+    // Clean up the event listener on component unmount
+    return () => {
+      if (scrollableDiv) {
+        scrollableDiv.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [servicesData]); // Add servicesData to dependencies if it can change
 
   const handleScrollToSection = (index: number) => {
-    if (scrollContainerRef.current) {
-      const sectionElement = sectionRefs.current[index];
-      if (sectionElement) {
-        const containerScrollTop = scrollContainerRef.current.scrollTop;
-        const sectionOffsetTop = sectionElement.getBoundingClientRect().top + containerScrollTop;
-        scrollContainerRef.current.scrollTo({ top: sectionOffsetTop, behavior: 'smooth' });
-      }
-      setActiveTab(servicesData[index].title);
+    const element = sectionRefs.current[index];
+    if (element) {
+      // Scroll the scrollableDiv to the selected section
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
-
   return (
     <section id="classes" className="pt-5 md:pt-28 relative">
       <Image className="hidden md:block w-full h-auto opacity-15 absolute top-[100px] -z-10" width={1000} height={1000} alt="bg1" src="/bg1.png" />
@@ -311,11 +353,11 @@ const Services = () => {
 
 
 
-        <div className="hidden md:flex flex-wrap justify-center mb-8 space-x-4">
+        <div   className="hidden md:flex flex-wrap justify-center mb-8 space-x-4">
           {servicesData.map((service, index) => (
             <button
               key={index}
-              className={`px-4 py-2 text-lg font-semibold transition-colors rounded-full ${activeTab === service.title ? 'bg-[#FFBB32] text-white' : 'bg-white text-teal-500'} hover:bg-[#c28f29] hover:text-white`}
+              className={`px-4 py-2 text-lg font-semibold transition-colors rounded-full ${activeTab === service.title ? 'bg-[#FFBB32] text-white' : 'bg-white text-teal-500 hover:bg-[#c28f29] hover:text-white'} `}
               onClick={() => setActiveTab(service.title)}
               aria-pressed={activeTab === service.title}
             >
@@ -343,80 +385,54 @@ const Services = () => {
           ))}
         </div> 
         {/* Scrollable Container for Subcategories (Mobile) */}
-        <div className="flex md:hidden flex-row gap-2 justify-center ">
-          <div ref={scrollContainerRef} className="overflow-y-auto h-[60vh] relative ">
-            <div className="flex flex-col gap-10">
-              {servicesData.map((service, index) => (
-                <div
-                  key={index}
-                  ref={(el) => {
-                    sectionRefs.current[index] = el;
-                  }}
-                  data-title={service.title}
-                  className="w-full bg-white rounded-lg shadow-lg overflow-hidden flex flex-col items-center p-2"
-                >
-                  <h3 className="text-xl font-bold text-[#C3340A] text-center mb-4">{service.title}</h3>
-                  {service.subcategories.map((subcategory, subIndex) => (
-                    <div key={subIndex} className="w-[250px] mb-6">
-                      <Image
-                        src={subcategory.imageUrl}
-                        alt={`${subcategory.name} class image`}
-                        width={1000}
-                        height={1000}
-                        className="w-full h-56 object-cover"
-                        loading="lazy"
-                      />
-                      <div className="p-4">
-                        <h3 className="text-xl font-semibold text-[#C3340A]">{subcategory.name}</h3>
-                        <p className="mt-2 text-gray-600">{subcategory.description}</p>
-                      </div>
-                    </div>
-                  ))}
+        <div id="scrollableDiv" className="flex md:hidden flex-row gap-2 justify-center">
+      <div ref={scrollContainerRef} className="overflow-y-auto h-[60vh] relative">
+        <div className="flex flex-col gap-10">
+          {servicesData.map((service, index) => (
+            <div
+              key={index}
+              ref={(el) => {
+                sectionRefs.current[index] = el;
+              }}
+              data-title={service.title}
+              className="w-full bg-white rounded-lg shadow-lg overflow-hidden flex flex-col items-center p-2"
+            >
+              <h3 className="text-xl font-bold text-[#C3340A] text-center mb-4">{service.title}</h3>
+              {service.subcategories.map((subcategory, subIndex) => (
+                <div key={subIndex} className="w-[250px] mb-6">
+                  <Image
+                    src={subcategory.imageUrl}
+                    alt={`${subcategory.name} class image`}
+                    width={1000}
+                    height={1000}
+                    className="w-full h-56 object-cover"
+                    loading="lazy"
+                  />
+                  <div className="p-4">
+                    <h3 className="text-xl font-semibold text-[#C3340A]">{subcategory.name}</h3>
+                    <p className="mt-2 text-gray-600">{subcategory.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
-          </div>
-          <style jsx>{`
-                @keyframes scroll {
-                    0% { transform: translateY(0); }
-                    50% { transform: translateY(-10px); }
-                    100% { transform: translateY(0); }
-                }
-                .animate-scroll {
-                    animation: scroll 0.5s ease-in-out forwards;
-                }
-
-                /* Custom Scrollbar Styles */
-                ::-webkit-scrollbar {
-                    width: 5px;
-                }
-                ::-webkit-scrollbar-track {
-                    background: transparent;
-                }
-                ::-webkit-scrollbar-thumb {
-                    background-color: #4c9e9a; /* Change to match your theme */
-                    border-radius: 10px; /* Curve the scrollbar ball */
-                    border: 2px solid transparent; /* Adjust thickness */
-                }
-                ::-webkit-scrollbar-thumb:hover {
-                    background-color: #3b7875; /* Darker on hover */
-                }
-            `}</style>
-
-          {/* Scroll Buttons (Mobile) */}
-          <div className="flex flex-col justify-center">
-            {servicesData.map((service, index) => (
-              <button
-                key={index}
-                onClick={() => handleScrollToSection(index)}
-                className={`mb-4 p-2 flex justify-center items-center rounded-full transition-transform duration-300 ease-in-out 
-                               ${activeTab === service.title ? 'bg-[#b68627] text-white' : 'bg-[#ffb92ed5] text-white'}`}
-              >
-              {service.title}
-              </button>
-            ))}
-          </div>
+          ))}
         </div>
+      </div>
+
+      {/* Scroll Buttons (Mobile) */}
+      <div className="flex flex-col justify-center">
+        {servicesData.map((service, index) => (
+          <button
+            key={index}
+            onClick={() => handleScrollToSection(index)}
+            className={`mb-4 p-2 flex justify-center items-center rounded-full transition-transform duration-300 ease-in-out 
+                           ${activeTab === service.title ? 'bg-[#b68627] text-white' : 'bg-[#ffb92ed5] text-white'}`}
+          >
+            {service.title}
+          </button>
+        ))}
+      </div>
+    </div>
       </div>
     </section>
   );
