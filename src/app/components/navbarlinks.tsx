@@ -9,66 +9,24 @@ export const Navbarlinks = {
       href: "#home",
       key: "home"
     },
+    
     {
-      label: "About Us",
-      href: "#about",
-      key: "about"
-    },
-    {
-      label:"Our Classes",
+      label:"Classes",
       href:"#classes",
       key:"classes"
 
     },
     {
-      label:"Our Facilities",
+      label:"Facilities",
       href:"#facilities",
       key:"Facilities"
 
-    }
-    // {
-    //   label: "Students",
-    //   key: "students",
-    //   dropdownLinks: [
-    //     {
-    //       label: "Music Classes",
-    //       href: "#music",
-    //       key: "music"
-    //     },
-    //     {
-    //       label: "Dance Classes",
-    //       href: "#dance",
-    //       key: "dance"
-    //     },
-    //     {
-    //       label: "Sports Programs",
-    //       href: "#sports",
-    //       key: "sports"
-    //     },
-    //     {
-    //       label: "Computer Class",
-    //       href: "#computer",
-    //       key: "computer"
-    //     }
-    //     ,
-    //     {
-    //       label: "Tuition",
-    //       href: "#Tuition",
-    //       key: "Tuition"
-    //     }
-    //   ]
-    // },
-    // {
-    //   label: "Parents",
-    //   key: "parents",
-    //   dropdownLinks: [
-    //     {
-    //       label: "Yoga & Meditation",
-    //       href: "#yoga",
-    //       key: "yoga"
-    //     }
-    //   ]
-    // }
+    },
+    {
+      label: "About Us",
+      href: "#about",
+      key: "about"
+    },
   ],
   contactButton: {
     label: "Contact Us",

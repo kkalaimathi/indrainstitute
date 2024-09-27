@@ -11,11 +11,13 @@ const Benefits = () => {
                     {Facilites.sections.map((section, index) => (
                         <div key={index} className="flex flex-col items-start text-center hover:scale-110 hover:bg-teal-50 p-4 rounded-xl group hover:shadow-lg">
                             <Image
-                                className="w-full h-48 object-cover rounded-lg shadow-md mb-4"
+                             width={1000}
+                             height={1000}
                                 src={section.image}
                                 alt={section.altText}
-                                width={300}
-                                height={200}
+                                className="w-full h-48 object-cover rounded-lg shadow-md mb-4"
+
+                               
                             />
                             <h3 className="text-xl font-bold  text-red-800 mb-2 group-hover:text-teal-500 ">
                                 {section.title}

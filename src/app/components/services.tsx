@@ -303,7 +303,7 @@ const Services = () => {
 
   return (
     <section id="classes" className="pt-5 md:pt-28 relative">
-      <Image className="hidden md:block w-full h-screen opacity-15 absolute top-[100px] -z-10" width={1000} height={1000} alt="bg1" src="/bg1.png" />
+      <Image className="hidden md:block w-full h-auto opacity-15 absolute top-[100px] -z-10" width={1000} height={1000} alt="bg1" src="/bg1.png" />
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 flex flex-col">
         <h2 className="text-4xl font-bold text-center text-[#C3340A] mb-10">Our Classes</h2>
@@ -314,7 +314,7 @@ const Services = () => {
           {servicesData.map((service, index) => (
             <button
               key={index}
-              className={`px-4 py-2 text-lg font-semibold transition-colors rounded-full ${activeTab === service.title ? 'bg-teal-500 text-white' : 'bg-white text-teal-500'} hover:bg-teal-300`}
+              className={`px-4 py-2 text-lg font-semibold transition-colors rounded-full ${activeTab === service.title ? 'bg-[#FFBB32] text-white' : 'bg-white text-teal-500'} hover:bg-[#c28f29] hover:text-white`}
               onClick={() => setActiveTab(service.title)}
               aria-pressed={activeTab === service.title}
             >
@@ -409,7 +409,7 @@ const Services = () => {
                 key={index}
                 onClick={() => handleScrollToSection(index)}
                 className={`mb-4 p-2 flex justify-center items-center rounded-full transition-transform duration-300 ease-in-out 
-                               ${activeTab === service.title ? 'bg-teal-500 text-white' : 'bg-teal-100'}`}
+                               ${activeTab === service.title ? 'bg-[#b68627] text-white' : 'bg-[#ffb92ed5] text-white'}`}
               >
               {service.title}
               </button>
