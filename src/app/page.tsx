@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <div>
       <Hero/>
-      <Services /><br /><br />
+      <Services />
       <Benefits />
 
-      <Aboutus /><br /><br />
+      <Aboutus />
       
       {/* <Testimonials /><br /><br /> */}
       <ContactForm />

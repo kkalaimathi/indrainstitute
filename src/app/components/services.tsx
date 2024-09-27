@@ -49,9 +49,9 @@
 
 //     return (
 //         <section id='classes' className="pt-5 md:pt-28  relative">
-//             <Image className='hidden lg:block w-full h-screen opacity-15  absolute top-[100px] -z-10' width={1000} height={1000} alt='bg1' src={"/bg1.png"} />
+//             <Image className='hidden md:block w-full h-screen opacity-15  absolute top-[100px] -z-10' width={1000} height={1000} alt='bg1' src={"/bg1.png"} />
 
-//             <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
+//             <div className="container mx-auto px-4 sm:px-6 md:px-8 flex flex-col">
 //         <h2 className="text-4xl font-bold text-center text-[#C3340A] mb-10">Our Classes</h2>
 
 //         {/* Tabs for Desktop */}
@@ -146,7 +146,7 @@
 //         </div>
 
 //         {/* Card Container for Desktop View */}
-//         <div className="hidden lg:flex flex-wrap justify-center gap-14 p-4">
+//         <div className="hidden md:flex flex-wrap justify-center gap-14 p-4">
 //           {activeService?.subcategories.map((subcategory, index) => (
 //             <div key={index} className="w-[350px] bg-white rounded-lg shadow-lg overflow-hidden">
 //               <Image
@@ -303,9 +303,9 @@ const Services = () => {
 
   return (
     <section id="classes" className="pt-5 md:pt-28 relative">
-      <Image className="hidden lg:block w-full h-screen opacity-15 absolute top-[100px] -z-10" width={1000} height={1000} alt="bg1" src="/bg1.png" />
+      <Image className="hidden md:block w-full h-screen opacity-15 absolute top-[100px] -z-10" width={1000} height={1000} alt="bg1" src="/bg1.png" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 flex flex-col">
         <h2 className="text-4xl font-bold text-center text-[#C3340A] mb-10">Our Classes</h2>
 
 
@@ -323,7 +323,7 @@ const Services = () => {
           ))}
         </div>
         {/* Tabs for Desktop */}
-        <div className="hidden lg:flex flex-wrap justify-center gap-14 p-4">
+        <div className="hidden md:flex flex-wrap justify-center gap-14 p-4">
           {activeService?.subcategories.map((subcategory, index) => (
           <div key={index} className="w-[350px] bg-white rounded-lg shadow-lg overflow-hidden">
                <Image
@@ -343,7 +343,7 @@ const Services = () => {
         </div> 
         {/* Scrollable Container for Subcategories (Mobile) */}
         <div className="flex md:hidden flex-row gap-2 justify-center ">
-          <div ref={scrollContainerRef} className="overflow-y-auto h-[60vh] relative p-5">
+          <div ref={scrollContainerRef} className="overflow-y-auto h-[60vh] relative ">
             <div className="flex flex-col gap-10">
               {servicesData.map((service, index) => (
                 <div
@@ -352,7 +352,7 @@ const Services = () => {
                     sectionRefs.current[index] = el;
                   }}
                   data-title={service.title}
-                  className="w-full bg-white rounded-lg shadow-lg overflow-hidden flex flex-col items-center"
+                  className="w-full bg-white rounded-lg shadow-lg overflow-hidden flex flex-col items-center p-2"
                 >
                   <h3 className="text-xl font-bold text-[#C3340A] text-center mb-4">{service.title}</h3>
                   {service.subcategories.map((subcategory, subIndex) => (
