@@ -305,8 +305,9 @@ const Services = () => {
     <section id="classes" className="pt-5 md:pt-28 relative">
       <Image className="hidden md:block w-full h-auto opacity-15 absolute top-[100px] -z-10" width={1000} height={1000} alt="bg1" src="/bg1.png" />
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 flex flex-col">
-        <h2 className="text-4xl font-bold text-center text-[#C3340A] mb-10">Our Classes</h2>
+      <div className="container mx-auto px-4 sm:px-6 md:px-8  flex flex-col">
+        <h2 className=" mb-5 text-4xl font-bold text-center text-[#C3340A] ">Our Classes</h2>
+        <p className='text-center mb-10 text-xl ' >Timming <span className='text-[#FFBB32] font-bold '>5pm - 8pm</span></p>
 
 
 

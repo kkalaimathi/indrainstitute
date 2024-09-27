@@ -224,17 +224,16 @@
 // export default Navbar;
 
 
-
-
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { FaArrowUp } from "react-icons/fa";
+import { useRouter } from "next/router"; // Import useRouter
+import { FaChevronDown, FaArrowUp } from "react-icons/fa"; 
 import { Navbarlinks } from "./navbarlinks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 interface DropdownLink {
-  label: string;
+  label: string;   
   href: string;
   key: string;
 }
@@ -249,7 +248,7 @@ interface Link {
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showScrollUp, setShowScrollUp] = useState(false);
+  const [showScrollUp, setShowScrollUp] = useState(false); 
   const [activeLink, setActiveLink] = useState<string | null>(null);
   const navbarRef = useRef<HTMLDivElement | null>(null);
   const pathname = usePathname();
@@ -260,14 +259,23 @@ const Navbar = () => {
 
   const handleClickOutside = (event: MouseEvent) => {
     if (navbarRef.current && !navbarRef.current.contains(event.target as Node)) {
-      setDropdownOpen(null);
-      setMenuOpen(false);
+      setDropdownOpen(null); 
+      setMenuOpen(false); 
     }
   };
 
   const handleScroll = () => {
     setShowScrollUp(window.scrollY > 300);
     setMenuOpen(false);
+
+    const sections = Navbarlinks.navLinks.map(link => document.querySelector(link.href as string));
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+    sections.forEach((section, index) => {
+      if (section && section.getBoundingClientRect().top <= scrollPosition && section.getBoundingClientRect().bottom >= scrollPosition) {
+        setActiveLink(Navbarlinks.navLinks[index].href);
+      }
+    });
   };
 
   const scrollToTop = () => {
@@ -279,8 +287,9 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
 
     // Set the active link based on the current pathname
-    setActiveLink(pathname === '/' ? '#home' : pathname);
-
+    const currentLink = Navbarlinks.navLinks.find(l => l.href === pathname);
+    setActiveLink(currentLink ? currentLink.href : null);
+  
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       window.removeEventListener("scroll", handleScroll);
@@ -292,9 +301,7 @@ const Navbar = () => {
     const targetSection = document.querySelector(safeHref);
     if (targetSection) {
       targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      setActiveLink(safeHref); // Set active link
-    } else {
-      setActiveLink(href || null); // Set active link for non-section links
+      setActiveLink(href || null); // Set active link, handle undefined
     }
   };
 
@@ -303,9 +310,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href={'/'}>
-            <img src={Navbarlinks.logo.src} alt={Navbarlinks.logo.alt} className="h-20 w-auto" />
-          </Link>
+          <img src={Navbarlinks.logo.src} alt={Navbarlinks.logo.alt} className="h-20 w-auto" />
+
           {/* Menu Links for Desktop */}
           <div className="hidden md:flex md:flex-row md:gap-6">
             {Navbarlinks.navLinks.map((link: Link) => (
@@ -320,6 +326,7 @@ const Navbar = () => {
               </div>
             ))}
           </div>
+
           {/* Contact Button for Desktop */}
           <div className="hidden md:flex items-center">
             <Link
@@ -329,6 +336,7 @@ const Navbar = () => {
               {Navbarlinks.contactButton.label}
             </Link>
           </div>
+
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center p-3">
             <button
@@ -359,6 +367,7 @@ const Navbar = () => {
                 </div>
               ))}
             </div>
+
             {/* Contact Button for Mobile */}
             <div className="mt-2 pb-4">
               <Link
@@ -386,3 +395,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
