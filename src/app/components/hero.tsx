@@ -82,7 +82,7 @@ const Header = () => {
     //     &gt; Right arrow
     //   </button>
     // </div>
-    <div className="w-full px-8 lg:h-screen bg-gradient-to-b from-yellow-100 via-yellow-150 to-yellow-0">
+    <div id="home" className="w-full px-8 lg:h-screen bg-gradient-to-b from-yellow-100 via-yellow-150 to-yellow-0">
       <div className="p-24 lg:pb-40 h-full lg:h-screen container mx-auto flex flex-col items-center justify-between gap-6 relative">
 
         {/* Left Hero Image */}

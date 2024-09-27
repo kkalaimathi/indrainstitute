@@ -6,7 +6,7 @@ export const Navbarlinks = {
   navLinks: [
     {
       label: "Home",
-      href: "/",
+      href: "#home",
       key: "home"
     },
     {
