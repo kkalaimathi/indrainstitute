@@ -32,8 +32,9 @@ const Contact = () => {
     setSubmitted(false);
 
     const { name, email, phone, message } = formData;
-
+    console.log("name, email, phone, message---------->12", name, email, phone, message);
     try {
+      // Send the main email
       const response = await fetch("/api/sendEmail", {
         method: "POST",
         headers: {
@@ -44,13 +45,17 @@ const Contact = () => {
           firstEmail: email,
           firstPhoneNumber: phone,
           firstMessage: message,
-          to: "yourcompanyemail@example.com", // Set to your company email
+          to: "ieact23@gmail.com", // Set to your company email
         }),
       });
-
+      console.log("response---------->12");
+      
       if (response.ok) {
+        // Reset form after successful submission
         setFormData({ name: "", email: "", phone: "", message: "" });
         setSubmitted(true);
+        console.log("response---------->12");
+        // Show success toast notification
         toast.success("Mail sent successfully!", {
           className: "bg-green-500 text-white",
         });
@@ -60,6 +65,7 @@ const Contact = () => {
           className: "bg-red-500 text-white",
         });
       }
+     
     } catch (error) {
       toast.error("An error occurred while sending the message.", {
         className: "bg-red-500 text-white",
@@ -71,7 +77,7 @@ const Contact = () => {
   };
 
   const handleResend = () => {
-    setSubmitted(false);
+    setSubmitted(false); 
     setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
