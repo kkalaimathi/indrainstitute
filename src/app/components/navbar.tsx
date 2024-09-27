@@ -75,6 +75,44 @@ const Navbar = () => {
     }
   };
 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Track the last section in view
+      let lastVisibleSection = "home";
+  
+      Navbarlinks.navLinks.forEach((section) => {
+        const element = document.getElementById(section.key);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // Check if the section's top is near the top of the viewport
+          if (rect.top >= 0 && rect.top < window.innerHeight / 4) {
+            setActivePage(section.key); // Update active page to the section in view
+            lastVisibleSection = section.key;
+          }
+        }
+      });
+  
+      // If no section is in view, set the active page to "home"
+      if (window.scrollY === 0) {
+        setActivePage("home");
+      }
+    };
+  
+    // Add the scroll event listener
+    window.addEventListener('scroll', handleScroll);
+  
+    // Call it initially to set the correct active page
+    handleScroll();
+  
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+   // Empty dependency array ensures this runs once
+  
+  
   return (
     <nav ref={navbarRef} className="bg-white shadow-lg sticky top-0 z-50 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -84,49 +122,50 @@ const Navbar = () => {
 
           {/* Menu Links for Desktop */}
           <div className="hidden md:flex md:flex-row md:gap-6">
-            {Navbarlinks.navLinks.map((link: Link) => (
-              <div key={link.key} className="relative">
-                {link.dropdownLinks ? (
-                  <div>
-                    <button
-                      type="button"
-                      onClick={() => toggleDropdown(link.key)}
-                      className={`flex items-center font-medium ${
-                        activePage  === link.key ? "text-red-500" : "text-rose-200"
-                      } hover:text-blue-500`}
-                    >
-                      {link.label}
-                      <FaChevronDown className="ml-2" />
-                    </button>
-                    {dropdownOpen === link.key && (
-                      <div className="absolute bg-white shadow-lg py-2 mt-2 w-40 z-50">
-                        {link.dropdownLinks.map((dropdownLink: DropdownLink) => (
-                          <Link
-                            key={dropdownLink.key}
-                            href={dropdownLink.href}
-                            onClick={() => handleNavClick(dropdownLink.href, dropdownLink.key)}
-                            className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                          >
-                            {dropdownLink.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link
-                    href={link.href as any}
-                    onClick={() => handleNavClick(link.href, link.key)} // Add click handler
-                    className={`font-medium ${
-                      activePage === link.key ? "text-red-500" : "text-gray-200"
-                    } hover:text-blue-500`}
-                  >
-                    {link.label}
-                  </Link>
-                )}
-              </div>
-            ))}
-          </div>
+  {Navbarlinks.navLinks.map((link: Link) => (
+    <div key={link.key} className="relative">
+      {link.dropdownLinks ? (
+        <div>
+          <button
+            type="button"
+            onClick={() => toggleDropdown(link.key)}
+            className={`flex items-center font-medium ${
+              activePage === link.href?.substring(1) ? "text-red-500" : "text-rose-200"
+            } hover:text-blue-500`}
+          >
+            {link.label}
+            <FaChevronDown className="ml-2" />
+          </button>
+          {dropdownOpen === link.key && (
+            <div className="absolute bg-white shadow-lg py-2 mt-2 w-40 z-50">
+              {link.dropdownLinks.map((dropdownLink: DropdownLink) => (
+                <Link
+                  key={dropdownLink.key}
+                  href={dropdownLink.href}
+                  onClick={() => handleNavClick(dropdownLink.href, dropdownLink.key)}
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >
+                  {dropdownLink.label}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      ) : (
+        <Link
+          href={link.href as any}
+          onClick={() => handleNavClick(link.href, link.key)}
+          className={`font-medium ${
+            activePage === link.href?.substring(1) ? "text-red-500" : "text-gray-200"
+          } hover:text-blue-500`}
+        >
+          {link.label}
+        </Link>
+      )}
+    </div>
+  ))}
+</div>
+
 
           {/* Contact Button for Desktop */}
           <div className="hidden md:flex items-center">
