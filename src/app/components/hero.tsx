@@ -31,7 +31,7 @@ const Header = () => {
           height={1000}
           alt="hero1"
           src={"/heroboy1.png"}
-          className="hidden md:block absolute left-0 w-[150px] md:w-[300px] 2xl:w-[500px] h-auto bottom-[300px] md:bottom-[90px] 2xl:bottom-[250px]"
+          className="hidden md:block absolute left-0 top-[20%] w-[350px]"
         />
 
         {/* Right Hero Image */}
@@ -40,7 +40,7 @@ const Header = () => {
           height={1000}
           alt="hero2"
           src={"/heroboy2.png"}
-          className="hidden md:block absolute right-0 w-[150px] md:w-[300px] 2xl:w-[500px] h-auto bottom-[300px] md:bottom-[90px] 2xl:bottom-[250px]"
+          className="hidden md:block absolute right-0 top-[20%] w-[350px]"
         />
 
         {/* Center Text */}
@@ -91,17 +91,17 @@ const Header = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="w-full bg-gray-800 py-6 px-6 md:py-8 md:px-10 xl:px-20 rounded-full flex flex-col md:flex-row items-center justify-around gap-8 md:gap-10">
+        <div className="w-full bg-gray-800 py-6 px-6 md:py-8 md:px-10 xl:px-20 rounded-full flex flex-row items-center justify-around gap-8 md:gap-10">
           <div className="text-center">
-            <p className="text-5xl md:text-6xl text-white font-bold">6+</p>
+            <p className="text-2xl md:text-6xl text-white font-bold">6+</p>
             <p className="text-xl md:text-2xl mt-2 text-white">Classes</p>
           </div>
           <div className="text-center">
-            <p className="text-5xl md:text-6xl text-white font-bold">10+</p>
+            <p className="text-2xl md:text-6xl text-white font-bold">10+</p>
             <p className="text-xl md:text-2xl mt-2 text-white">Masters</p>
           </div>
           <div className="text-center">
-            <p className="text-5xl md:text-6xl text-white font-bold">50+</p>
+            <p className="text-2xl md:text-6xl text-white font-bold">50+</p>
             <p className="text-xl md:text-2xl mt-2 text-white">Students</p>
           </div>
         </div>
